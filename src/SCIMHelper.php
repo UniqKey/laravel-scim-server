@@ -20,6 +20,7 @@ use UniqKey\Laravel\SCIMServer\SCIM\Schema;
 use UniqKey\Laravel\SCIMServer\Attributes\AttributeMapping;
 use UniqKey\Laravel\SCIMServer\Attributes\Collection;
 use UniqKey\Laravel\SCIMServer\Exceptions\SCIMException;
+use Illuminate\Support\Arr;
 
 class SCIMHelper
 {
@@ -310,7 +311,7 @@ class SCIMHelper
     {
         $partsCopy = $parts;
 
-        $first = array_first($partsCopy);
+        $first = Arr::first($partsCopy);
 
         if (null === $first) {
             throw (new SCIMException('Unknown error. ' . json_encode($partsCopy)))
